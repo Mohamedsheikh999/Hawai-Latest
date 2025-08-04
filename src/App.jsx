@@ -5,10 +5,12 @@ import { AuthProvider } from './context/AuthContext';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import StudentDashboard from './pages/Student';
-import AdminDashboard from './pages/Admin';
+//import AdminDashboard from './pages/Admin';
 import NotFound from './pages/NotFound';
 import LoadingSpinner from './components/UI/LoadingSpinner';
 import Layout from './components/Layout';
+import AdminDashboard from './components/Dashboard/AdminDashboard';
+
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -31,7 +33,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
               <Route path="/student" element={<Layout><StudentDashboard /></Layout>} />
-              <Route path="/admin" element={<Layout><AdminDashboard /></Layout>} />
+             <Route path="/admin" element={<Layout><AdminDashboard /></Layout>} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </div>
