@@ -44,13 +44,6 @@ const Home = () => {
     }
   ];
 
-  const benefits = [
-    { icon: <FiCheckCircle />, text: "Personalized learning paths" },
-    { icon: <FiBarChart2 />, text: "Real-time performance tracking" },
-    { icon: <FiEdit3 />, text: "Interactive question bank" },
-    { icon: <FiLock />, text: "Secure exam environment" }
-  ];
-
   // Auto-rotate features
   useEffect(() => {
     const interval = setInterval(() => {
@@ -76,13 +69,13 @@ const Home = () => {
   if (!mounted) return null;
 
   return (
-    <div className={`min-h-screen transition-colors duration-300 ${theme === 'dark' ? 'bg-gray-900 text-gray-100' : 'bg-gradient-to-br from-green-50 to-green-100 text-gray-800'}`}>
+    <div className={`min-h-screen transition-colors duration-300 ${theme === 'dark' ? 'bg-gray-900 text-gray-100' : 'bg-gray-50 text-gray-800'}`}>
       {/* Animated background elements */}
       <div className="fixed inset-0 overflow-hidden opacity-20 z-0">
         {[...Array(15)].map((_, i) => (
           <motion.div
             key={i}
-            className={`absolute rounded-full ${theme === 'dark' ? 'bg-emerald-900' : 'bg-green-200'}`}
+            className={`absolute rounded-full ${theme === 'dark' ? 'bg-gray-800' : 'bg-gray-200'}`}
             initial={{
               x: Math.random() * window.innerWidth,
               y: Math.random() * window.innerHeight,
@@ -108,7 +101,7 @@ const Home = () => {
       {/* Theme toggle floating button */}
       <button
         onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-        className={`fixed right-6 bottom-6 z-50 p-3 rounded-full shadow-lg transition-all duration-300 ${theme === 'dark' ? 'bg-emerald-800 hover:bg-emerald-700 text-white' : 'bg-white hover:bg-green-100 text-green-800'}`}
+        className={`fixed right-6 bottom-6 z-50 p-3 rounded-full shadow-lg transition-all duration-300 ${theme === 'dark' ? 'bg-gray-800 hover:bg-gray-700 text-white' : 'bg-white hover:bg-gray-100 text-gray-800'}`}
         aria-label="Toggle dark mode"
       >
         {theme === 'dark' ? <FiSun size={20} /> : <FiMoon size={20} />}
@@ -123,18 +116,18 @@ const Home = () => {
             transition={{ duration: 0.8 }}
             className="max-w-6xl w-full"
           >
-            <div className="inline-flex items-center px-4 py-2 rounded-full mb-6 text-sm font-medium bg-green-100 text-green-800 dark:bg-emerald-900 dark:text-emerald-100">
+            <div className={`inline-flex items-center px-4 py-2 rounded-full mb-6 text-sm font-medium ${theme === 'dark' ? 'bg-gray-800 text-gray-100' : 'bg-gray-200 text-gray-800'}`}>
               <FaGraduationCap className="mr-2" /> The future of education is here
             </div>
             
             <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-              <span className={`bg-clip-text text-transparent bg-gradient-to-r ${theme === 'dark' ? 'from-emerald-400 to-green-500' : 'from-green-600 to-emerald-600'}`}>
+              <span className={`bg-clip-text text-transparent bg-gradient-to-r ${theme === 'dark' ? 'from-gray-300 to-gray-400' : 'from-gray-700 to-gray-800'}`}>
                 Revolutionize Your <span className="whitespace-nowrap">Learning</span>
               </span>
             </h1>
             
             <p className={`text-xl md:text-2xl max-w-3xl mx-auto mb-10 ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>
-              Hawai Academy combines AI-powered analytics with premium educational content to supercharge your academic journey.
+              Hawai Academy combines analytics with premium educational content to supercharge your academic journey.
             </p>
             
             <div className="flex flex-col sm:flex-row justify-center gap-4 mb-16">
@@ -152,7 +145,7 @@ const Home = () => {
                 </span>
                 {isHovered && (
                   <motion.span
-                    className={`absolute inset-0 bg-gradient-to-r ${theme === 'dark' ? 'from-emerald-600 to-green-700' : 'from-emerald-500 to-green-600'}`}
+                    className={`absolute inset-0 bg-gradient-to-r ${theme === 'dark' ? 'from-gray-700 to-gray-600' : 'from-gray-600 to-gray-500'}`}
                     initial={{ x: "-100%" }}
                     animate={{ x: 0 }}
                     exit={{ x: "100%" }}
@@ -181,17 +174,17 @@ const Home = () => {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
                 transition={{ duration: 0.5 }}
-                className={`p-8 rounded-2xl shadow-xl border ${theme === 'dark' ? 'bg-gray-800 border-gray-700' : 'bg-white/90 backdrop-blur-sm border-gray-200'}`}
+                className={`p-8 rounded-2xl shadow-xl border ${theme === 'dark' ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'}`}
               >
                 <div className="flex flex-col md:flex-row items-center gap-6">
-                  <div className={`p-4 rounded-full ${theme === 'dark' ? 'bg-emerald-900 text-emerald-300' : 'bg-green-100 text-green-700'}`}>
+                  <div className={`p-4 rounded-full ${theme === 'dark' ? 'bg-gray-700 text-gray-300' : 'bg-gray-100 text-gray-700'}`}>
                     {features[currentFeature].icon}
                   </div>
                   <div className="text-left">
-                    <h3 className={`text-2xl font-bold mb-2 ${theme === 'dark' ? 'text-emerald-300' : 'text-green-700'}`}>
+                    <h3 className={`text-2xl font-bold mb-2 ${theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}>
                       {features[currentFeature].title}
                     </h3>
-                    <p className={theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}>
+                    <p className={theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}>
                       {features[currentFeature].description}
                     </p>
                   </div>
@@ -204,50 +197,15 @@ const Home = () => {
                 <button
                   key={index}
                   onClick={() => setCurrentFeature(index)}
-                  className={`w-3 h-3 rounded-full transition-colors ${currentFeature === index ? (theme === 'dark' ? 'bg-emerald-400' : 'bg-green-600') : (theme === 'dark' ? 'bg-gray-600' : 'bg-gray-300')}`}
+                  className={`w-3 h-3 rounded-full transition-colors ${currentFeature === index ? (theme === 'dark' ? 'bg-gray-400' : 'bg-gray-600') : (theme === 'dark' ? 'bg-gray-600' : 'bg-gray-300')}`}
                 />
               ))}
             </div>
           </div>
         </section>
 
-        {/* Benefits Section */}
-        <section className={`py-16 px-6 ${theme === 'dark' ? 'bg-gray-800' : 'bg-white'}`}>
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-              Why Choose <span className={theme === 'dark' ? 'text-emerald-400' : 'text-green-600'}>Hawai Academy</span>?
-            </h2>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {benefits.map((benefit, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1, duration: 0.5 }}
-                  viewport={{ once: true }}
-                  className={`p-6 rounded-xl shadow-md ${theme === 'dark' ? 'bg-gray-700 border-gray-600' : 'bg-green-50 border border-green-100'}`}
-                >
-                  <div className={`w-12 h-12 rounded-full flex items-center justify-center mb-4 ${theme === 'dark' ? 'bg-emerald-900 text-emerald-300' : 'bg-green-100 text-green-600'}`}>
-                    {benefit.icon}
-                  </div>
-                  <h3 className={`text-xl font-semibold mb-2 ${theme === 'dark' ? 'text-white' : 'text-gray-800'}`}>
-                    {benefit.text}
-                  </h3>
-                  <p className={theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor.
-                  </p>
-                  <button className={`mt-4 flex items-center text-sm font-medium ${theme === 'dark' ? 'text-emerald-400 hover:text-emerald-300' : 'text-green-600 hover:text-green-700'}`}>
-                    Learn more <FiChevronRight className="ml-1" />
-                  </button>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* Stats Section */}
-        <section className={`py-16 px-6 ${theme === 'dark' ? 'bg-gray-900' : 'bg-green-100'}`}>
+        <section className={`py-16 px-6 ${theme === 'dark' ? 'bg-gray-800' : 'bg-gray-100'}`}>
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {[
@@ -262,15 +220,15 @@ const Home = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1, duration: 0.5 }}
                   viewport={{ once: true }}
-                  className={`p-6 rounded-xl shadow-md ${theme === 'dark' ? 'bg-gray-800 border-gray-700' : 'bg-white border border-gray-100'} text-center`}
+                  className={`p-6 rounded-xl shadow-md ${theme === 'dark' ? 'bg-gray-700 border-gray-600' : 'bg-white border border-gray-200'} text-center`}
                 >
-                  <div className={`w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3 ${theme === 'dark' ? 'bg-emerald-900 text-emerald-300' : 'bg-green-100 text-green-600'}`}>
+                  <div className={`w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3 ${theme === 'dark' ? 'bg-gray-600 text-gray-300' : 'bg-gray-100 text-gray-700'}`}>
                     {stat.icon}
                   </div>
-                  <p className={`text-3xl font-bold mb-1 ${theme === 'dark' ? 'text-emerald-400' : 'text-green-600'}`}>
+                  <p className={`text-3xl font-bold mb-1 ${theme === 'dark' ? 'text-gray-300' : 'text-gray-800'}`}>
                     {stat.value}
                   </p>
-                  <p className={theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}>
+                  <p className={theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}>
                     {stat.label}
                   </p>
                 </motion.div>
@@ -279,104 +237,42 @@ const Home = () => {
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className={`py-20 px-6 ${theme === 'dark' ? 'bg-gray-800' : 'bg-white'}`}>
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Ready to <span className={theme === 'dark' ? 'text-emerald-400' : 'text-green-600'}>transform</span> your learning?
-            </h2>
-            <p className={`text-xl mb-8 max-w-2xl mx-auto ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>
-              Join thousands of students already achieving their academic goals with Hawai Academy.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Button 
-                as="a" 
-                href="/signup" 
-                variant="primary"
-                theme={theme}
-                size="lg"
-              >
-                Sign Up Now
-              </Button>
-              <Button 
-                as="a" 
-                href="/login" 
-                variant="secondary"
-                theme={theme}
-                size="lg"
-              >
-                Sign In
-              </Button>
+        {/* Footer */}
+        <footer className={`py-12 px-6 ${theme === 'dark' ? 'bg-gray-900' : 'bg-gray-800 text-white'}`}>
+          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+              <h3 className="text-xl font-bold mb-4">Hawai Academy</h3>
+              <p className="opacity-80">
+                Empowering students through innovative learning solutions.
+              </p>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-4">Quick Links</h4>
+              <ul className="space-y-2">
+                <li><a href="/" className="opacity-80 hover:opacity-100 transition">Home</a></li>
+                <li><a href="/features" className="opacity-80 hover:opacity-100 transition">Features</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-4">Legal</h4>
+              <ul className="space-y-2">
+                <li><a href="/privacy" className="opacity-80 hover:opacity-100 transition">Privacy Policy</a></li>
+                <li><a href="/terms" className="opacity-80 hover:opacity-100 transition">Terms of Service</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-4">Connect</h4>
+              <div className="flex space-x-4">
+                <a href="#" className="opacity-80 hover:opacity-100 transition">Twitter</a>
+                <a href="#" className="opacity-80 hover:opacity-100 transition">Facebook</a>
+              </div>
             </div>
           </div>
-        </section>
+          <div className="max-w-6xl mx-auto mt-12 pt-6 border-t border-opacity-20 text-center">
+            <p className="opacity-70">© {new Date().getFullYear()} Hawai Academy. All rights reserved.</p>
+          </div>
+        </footer>
       </main>
-
-      {/* Floating particles */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
-        {[...Array(30)].map((_, i) => (
-          <motion.div
-            key={i}
-            className={`absolute rounded-full ${theme === 'dark' ? 'bg-emerald-900/30' : 'bg-green-200/50'}`}
-            style={{
-              width: Math.random() * 10 + 5,
-              height: Math.random() * 10 + 5,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`
-            }}
-            animate={{
-              y: [0, (Math.random() - 0.5) * 100],
-              x: [0, (Math.random() - 0.5) * 50],
-              opacity: [0.2, 0.8, 0.2],
-              transition: {
-                duration: Math.random() * 10 + 10,
-                repeat: Infinity,
-                repeatType: "reverse"
-              }
-            }}
-          />
-        ))}
-      </div>
-
-      {/* Footer */}
-      <footer className={`py-12 px-6 ${theme === 'dark' ? 'bg-gray-900' : 'bg-green-800 text-white'}`}>
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div>
-            <h3 className="text-xl font-bold mb-4">Hawai Academy</h3>
-            <p className="opacity-80">
-              Empowering students through innovative learning solutions.
-            </p>
-          </div>
-          <div>
-            <h4 className="font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-2">
-              <li><a href="/" className="opacity-80 hover:opacity-100 transition">Home</a></li>
-              <li><a href="/features" className="opacity-80 hover:opacity-100 transition">Features</a></li>
-              <li><a href="/pricing" className="opacity-80 hover:opacity-100 transition">Pricing</a></li>
-              <li><a href="/contact" className="opacity-80 hover:opacity-100 transition">Contact</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-semibold mb-4">Legal</h4>
-            <ul className="space-y-2">
-              <li><a href="/privacy" className="opacity-80 hover:opacity-100 transition">Privacy Policy</a></li>
-              <li><a href="/terms" className="opacity-80 hover:opacity-100 transition">Terms of Service</a></li>
-              <li><a href="/cookies" className="opacity-80 hover:opacity-100 transition">Cookie Policy</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-semibold mb-4">Connect</h4>
-            <div className="flex space-x-4">
-              <a href="#" className="opacity-80 hover:opacity-100 transition">Twitter</a>
-              <a href="#" className="opacity-80 hover:opacity-100 transition">Facebook</a>
-              <a href="#" className="opacity-80 hover:opacity-100 transition">Instagram</a>
-            </div>
-          </div>
-        </div>
-        <div className="max-w-6xl mx-auto mt-12 pt-6 border-t border-opacity-20 text-center">
-          <p className="opacity-70">© {new Date().getFullYear()} Hawai Academy. All rights reserved.</p>
-        </div>
-      </footer>
     </div>
   );
 };
